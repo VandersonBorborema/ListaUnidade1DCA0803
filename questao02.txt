@@ -1,0 +1,8 @@
+int i=5, *p;
+p = &i;
+printf("%x %d %d %d %d", p,*p+2,**&p,3**p,**&p+4);
+1ª Retorna o endereço des i.
+2ª Retorna o inteiro 7.
+3ª Retorna o inteiro 5.
+4ª Retorna o inteiro 15.
+5ª Retornar o inteiro 9.

@@ -1,0 +1,4 @@
+p = mat + 1; Válida, mas pula uma posição na memorória partindo do vertor mat.
+p = mat++; Inválida
+p = ++mat; Inválida
+x = (*mat)++; Válida, x recebe o valor que está na posição mat[0], já que o incremento só definido após o (*mat).

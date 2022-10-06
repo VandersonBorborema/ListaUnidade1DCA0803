@@ -1,0 +1,9 @@
+int i=3,j=5;
+int *p, *q;
+p = &i;
+q = &j;
+
+p == &i; //Retorna 1, já que a equivalência é verdadeira.
+*p - *q; //Como p aponta para i=3 e q aponta para j=5, retorna o inteiro -2.
+**&p; //Retorna o inteiro 3, o &p retornaria o endereço de p, mas com *&p retorna o endereço do inteiro associado a p, que é i, e ainda **&p retorna o que está dentro do endereço i, que é 3.
+3 - *p/(*q) + 7; // Retorna 10, 3+7=10, *p/(*q) é uma divisão de inteiros onde o numerador é menor que o denominador, assim o inteiro que retorna é 0 e 0+10= 10.
