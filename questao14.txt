@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+//função que compara os elementos do vetor, usa as posições do vetor como parametro
+/*
+A função se baseia no retorno da diferença entre a e b, se for positiva a é maior que b, se for negativa a é menor que b e se for zero
+são iguais, assim a função qsort interpreta esse retornor e ordena. A função é de parametros inteiros pois qsort trabalha com o tipo inteiro.
+
+*/
+int comparador(const void *a, const void *b) {
+   return ( *(int*)a - *(int*)b );
+}
+int main()
+{
+    int i, n;//declarção das variaveis
+    printf("Informe um nuhmero: ");//o tamanho da lista para ser ordenada
+    scanf("%d",&n);//aramazena um inteiro
+
+    float *x;//declaração de um ponteiro
+    x = (float*) malloc(n*sizeof(float));
+    //gera números aleatórios e imprime do cmd
+    for(i = 0; i<n; i++){
+        x[i] = rand()%100;//gera números aleatorios
+        printf("%f ", x[i]);
+    }
+
+    qsort(x, n, sizeof(float), comparador); //função qsort que usa os parametros, respctivamente, vetor para ordenar, tamanho do vetor, tamanho em bytes dos elementos e função de comaparação a ser utilizada
+
+    //imprime a lista ordenada
+    printf("\n Lista ordenada:\n");
+    for(i = 0; i<n; i++){
+        printf("%f ", x[i]);
+    }
+
+    free(x);//libera memória
+    return 0;
+}

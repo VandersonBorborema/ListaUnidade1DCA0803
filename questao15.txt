@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int comparador(const void *a, const void *b) {
+   return (*(int*)a - *(int*)b );
+}
+float pog(float *vetor, int k, int(*comparador)(float *a, float *b)){
+    int i, j;
+    float temp;
+    for(i=0; i<k; i++){
+        for(j =0; j<k; j++){
+            if(comparador(vetor+i, vetor+j)<0){//se o compador retornar um valor negativo, então inverta a ordem dos valores
+                temp = vetor[j];
+                vetor[j] = vetor[i];
+                vetor[i] = temp;
+            }
+        }
+    }
+
+}
+int main()
+{
+    int i, n;
+
+    printf("Informe um nuhmero: ");
+    scanf("%d",&n);
+
+    float *x;
+    x = (float*) malloc(n*sizeof(float));
+    for(i = 0; i<n; i++){
+        x[i] = rand()%100;
+        printf("%f ", x[i]);
+    }
+
+    pog(x, n, comparador);//função de ordenção, x é o vetor, n o número de elementos e compador a fução de comparação
+
+    printf("\n Lista ordenada:\n");
+    for(i = 0; i<n; i++){
+        printf("%f ", x[i]);
+    }
+
+    free(x);
+    return 0;
+}
+
