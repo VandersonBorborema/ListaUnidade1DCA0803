@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int somarVetores(int*a, int *b, int *n, int *soma){
+    int i;
+    for(i = 0; i<n; i++){
+        *(soma+i) = *(a+i)+*(b+i);
+    }
+}
+
+int main(){
+  int i, n;
+  printf("Informe um nuhmero: ");
+  scanf("%d", &n);
+
+  int *x, *y, *soma;
+
+  x = (float*) malloc(n*sizeof(float));
+  y = (float*) malloc(n*sizeof(float));
+  soma = (float*) malloc(n*sizeof(float));
+
+  printf("\nVetor x:\n");
+  for(i=0; i<n; i++){
+    x[i] = rand()%100;
+    printf("%d ", x[i]);
+  }
+  printf("\nVetor y:\n");
+  for(i=0; i<n; i++){
+    y[i] = rand()%100;
+    printf("%d ", y[i]);
+  }
+
+  somarVetores(x, y, n,soma);
+  printf("\nVetor x+y:\n");
+  for(i=0; i<n; i++){
+    printf("%d ", soma[i]);
+  }
+  return 0;
+}
