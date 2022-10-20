@@ -1,0 +1,18 @@
+os ponteiros podem "apontar" para variaveis e passar a ter o valor delas, um ponteiro para uma função "aponta" para a função e passa a ter o mesmo encargo que ela.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+
+    int *p;
+    int valor = 10;
+
+    p = &valor;
+
+    printf("Endereço = %x \n", &valor);
+    printf("Endereço = %x \n", p);
+    printf("Valor = %d \n", *p);
+
+    return 0;
+}
